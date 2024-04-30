@@ -1,0 +1,36 @@
+{
+    "name": "AtCoder Python",
+    "image": "liebemagi/atcoder-python:latest",
+    //"image": "liebemagi/atcoder-python:latest-pypy",
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "ms-python.isort"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/config/acc",
+            "target": "/home/user/.config/atcoder-cli-nodejs"
+        },
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/config/oj",
+            "target": "/home/user/.local/share/online-judge-tools"
+        },
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/.vscode",
+            "target": "/home/user/work/.vscode"
+        }
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder}/contents,target=/home/user/work/contents,type=bind",
+    "workspaceFolder": "/home/user/work"
+}
